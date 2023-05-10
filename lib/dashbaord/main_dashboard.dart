@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:loyverse/dashbaord/customer/cusotmer_main_screen.dart';
 
 class MainDasboard extends StatefulWidget {
   const MainDasboard({super.key});
@@ -39,28 +40,36 @@ class _MainDasboardState extends State<MainDasboard> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                width: 170,
-                height: 178,
-                decoration: BoxDecoration(
-                    color: Color(0xffE7E8EA),
-                    borderRadius: BorderRadius.circular(20)),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.dashboard_customize,
-                      size: 60,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "Customer Managment",
-                      style: TextStyle(color: Color(0xff394867)),
-                    )
-                  ],
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (builder) => CustomerMainScreen()));
+                },
+                child: Container(
+                  width: 170,
+                  height: 178,
+                  decoration: BoxDecoration(
+                      color: Color(0xffE7E8EA),
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.dashboard_customize,
+                        size: 60,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "Customer Managment",
+                        style: TextStyle(color: Color(0xff394867)),
+                      )
+                    ],
+                  ),
                 ),
               ),
               SizedBox(
