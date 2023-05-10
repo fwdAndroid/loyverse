@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:loyverse/auth/login_screen.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({super.key});
@@ -25,6 +26,32 @@ class _FirstScreenState extends State<FirstScreen> {
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.white,
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Spacer(),
+          Center(
+            child: Image.asset(
+              "assets/scan.png",
+              width: 300,
+            ),
+          ),
+          Spacer(),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (builder) => LoginScreen()));
+            },
+            child: Text("Start"),
+            style: ElevatedButton.styleFrom(
+                shape: StadiumBorder(),
+                backgroundColor: Color(0xff394867),
+                fixedSize: Size(220, 56)),
+          ),
+          Spacer(),
+        ],
       ),
     );
   }
