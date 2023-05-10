@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:loyverse/auth/login_screen.dart';
 import 'package:loyverse/auth/register_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
@@ -44,13 +45,29 @@ class _LoginScreenState extends State<LoginScreen> {
               child: TextField(
                 decoration: InputDecoration(hintText: "842341952%956@"),
               )),
+          Container(
+              margin: EdgeInsets.only(top: 15, left: 20),
+              child: Text("Confrim Password")),
+          Container(
+              margin: EdgeInsets.only(top: 5, left: 20, right: 20),
+              child: TextField(
+                decoration: InputDecoration(hintText: "842341952%956@"),
+              )),
+          Container(
+              margin: EdgeInsets.only(top: 15, left: 20),
+              child: Text("Country")),
+          Container(
+              margin: EdgeInsets.only(top: 5, left: 20, right: 20),
+              child: TextField(
+                decoration: InputDecoration(hintText: "Pakistan"),
+              )),
           SizedBox(
             height: 30,
           ),
           Center(
             child: ElevatedButton(
               onPressed: () {},
-              child: Text("Login"),
+              child: Text("Register"),
               style: ElevatedButton.styleFrom(
                   shape: StadiumBorder(),
                   backgroundColor: Color(0xff394867),
@@ -60,12 +77,10 @@ class _LoginScreenState extends State<LoginScreen> {
           Center(
               child: TextButton(
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (builder) => RegisterScreen()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (builder) => LoginScreen()));
                   },
-                  child: Text("Register")))
+                  child: Text("Already Have an Account")))
         ],
       ),
     );
