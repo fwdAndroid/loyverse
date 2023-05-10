@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:loyverse/auth/register_screen.dart';
+import 'package:loyverse/dashbaord/main_dashboard.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -49,7 +50,10 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           Center(
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (builder) => MainDasboard()));
+              },
               child: Text("Login"),
               style: ElevatedButton.styleFrom(
                   shape: StadiumBorder(),
