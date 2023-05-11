@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:loyverse/dashbaord/customer/cusotmer_main_screen.dart';
+import 'package:loyverse/widgets/my_drawer.dart';
 
 class MainDasboard extends StatefulWidget {
   const MainDasboard({super.key});
@@ -14,15 +15,16 @@ class _MainDasboardState extends State<MainDasboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MyDrawer(),
       backgroundColor: Colors.white,
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Image.asset("assets/notifications.png"),
           )
         ],
-        automaticallyImplyLeading: false,
         title: Text(
           "Point of Sale",
           style: TextStyle(
