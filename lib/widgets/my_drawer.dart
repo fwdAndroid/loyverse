@@ -3,6 +3,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:loyverse/dashbaord/customer/cusotmer_main_screen.dart';
 import 'package:loyverse/dashbaord/purchase_order/purchase_order.dart';
+import 'package:loyverse/dashbaord/transfer_orders/transfer_order_main_screen.dart';
+
+import '../dashbaord/stockadjustment/stockadjustment_main_screen.dart';
 
 class MyDrawer extends StatefulWidget {
   const MyDrawer({super.key});
@@ -73,7 +76,22 @@ class _MyDrawerState extends State<MyDrawer> {
                 title: Text("Purchase Orders"),
               ),
               ListTile(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (builder) => TransferOrderMainScreen()));
+                },
                 title: Text("Transfer Orders"),
+              ),
+              ListTile(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (builder) => StockAdjustmentMainScreen()));
+                },
+                title: Text("Stock Adjustments"),
               ),
               ListTile(
                 title: Text("Inventory Counts"),
