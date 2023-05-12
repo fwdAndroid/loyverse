@@ -6,6 +6,7 @@ import 'package:loyverse/dashbaord/customer/customer_view.dart';
 import 'package:loyverse/dashbaord/purchase_order/add_purchase_order.dart';
 import 'package:loyverse/dashbaord/purchase_order/view_purchase_order.dart';
 import 'package:loyverse/dashbaord/stockadjustment/add_stock.dart';
+import 'package:loyverse/dashbaord/stockadjustment/view_stock.dart';
 import 'package:loyverse/dashbaord/transfer_orders/add_transfer_order.dart';
 import 'package:loyverse/dashbaord/transfer_orders/view_transfer_order.dart';
 
@@ -88,10 +89,8 @@ class _StockAdjustmentMainScreenState extends State<StockAdjustmentMainScreen> {
                 ),
                 trailing: TextButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (builder) => ViewTransferOrder()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (builder) => ViewStock()));
                     },
                     child: Text(
                       "View",
