@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:loyverse/dashbaord/customer/cusotmer_main_screen.dart';
+import 'package:loyverse/dashbaord/inventory_supplies/inventory_history.dart';
+import 'package:loyverse/dashbaord/inventory_supplies/supply_main_screen.dart';
+import 'package:loyverse/dashbaord/productions/production_main_screen.dart';
 import 'package:loyverse/dashbaord/purchase_order/purchase_order.dart';
 import 'package:loyverse/dashbaord/transfer_orders/transfer_order_main_screen.dart';
 
+import '../dashbaord/inventorycounts/inventory_count_main_screen.dart';
 import '../dashbaord/stockadjustment/stockadjustment_main_screen.dart';
 
 class MyDrawer extends StatefulWidget {
@@ -94,15 +98,39 @@ class _MyDrawerState extends State<MyDrawer> {
                 title: Text("Stock Adjustments"),
               ),
               ListTile(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (builder) => InventoryCountMainScreen()));
+                },
                 title: Text("Inventory Counts"),
               ),
               ListTile(
-                title: Text("Products"),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (builder) => ProductionMainScreen()));
+                },
+                title: Text("Productions"),
               ),
               ListTile(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (builder) => MainSupplyScreen()));
+                },
                 title: Text("Suppliers"),
               ),
               ListTile(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (builder) => InventoryHistory()));
+                },
                 title: Text("Inventory History"),
               ),
               ListTile(
