@@ -7,11 +7,15 @@ import 'package:loyverse/dashbaord/inventory_supplies/supply_main_screen.dart';
 import 'package:loyverse/dashbaord/productions/production_main_screen.dart';
 import 'package:loyverse/dashbaord/purchase_order/purchase_order.dart';
 import 'package:loyverse/dashbaord/sales/sales_by_category.dart';
+import 'package:loyverse/dashbaord/sales/sales_by_discount.dart';
 import 'package:loyverse/dashbaord/sales/sales_by_employee.dart';
 import 'package:loyverse/dashbaord/sales/sales_by_items.dart';
+import 'package:loyverse/dashbaord/sales/sales_by_modifier.dart';
 import 'package:loyverse/dashbaord/sales/sales_by_payment.dart';
 import 'package:loyverse/dashbaord/sales/sales_by_reciptes.dart';
+import 'package:loyverse/dashbaord/sales/sales_by_taxes.dart';
 import 'package:loyverse/dashbaord/sales/sales_summary.dart';
+import 'package:loyverse/dashbaord/sales/shifts.dart';
 import 'package:loyverse/dashbaord/transfer_orders/transfer_order_main_screen.dart';
 
 import '../dashbaord/inventorycounts/inventory_count_main_screen.dart';
@@ -93,15 +97,35 @@ class _MyDrawerState extends State<MyDrawer> {
                 title: Text("Recipts"),
               ),
               ListTile(
-                title: Text("Sales by modifier"),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (builder) => SalesByModifiers()));
+                },
+                title: Text("Sales by Modifier"),
               ),
               ListTile(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (builder) => SalesByDiscounts()));
+                },
                 title: Text("Discounts"),
               ),
               ListTile(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (builder) => SalesByTax()));
+                },
                 title: Text("Taxes"),
               ),
               ListTile(
+                 onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (builder) => Shifts()));
+                },
                 title: Text("Shifts"),
               ),
             ],
