@@ -4,6 +4,10 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:loyverse/dashbaord/customer/cusotmer_main_screen.dart';
 import 'package:loyverse/dashbaord/inventory_supplies/inventory_history.dart';
 import 'package:loyverse/dashbaord/inventory_supplies/supply_main_screen.dart';
+import 'package:loyverse/dashbaord/itemslist/categorylist.dart';
+import 'package:loyverse/dashbaord/itemslist/discountlist.dart';
+import 'package:loyverse/dashbaord/itemslist/itemslist.dart';
+import 'package:loyverse/dashbaord/itemslist/modifierslist.dart';
 import 'package:loyverse/dashbaord/productions/production_main_screen.dart';
 import 'package:loyverse/dashbaord/purchase_order/purchase_order.dart';
 import 'package:loyverse/dashbaord/sales/sales_by_category.dart';
@@ -122,11 +126,46 @@ class _MyDrawerState extends State<MyDrawer> {
                 title: Text("Taxes"),
               ),
               ListTile(
-                 onTap: () {
+                onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (builder) => Shifts()));
                 },
                 title: Text("Shifts"),
+              ),
+            ],
+          ),
+          //Items
+          ExpansionTile(
+            leading: Icon(Icons.integration_instructions),
+            title: Text("Items"),
+            children: [
+              ListTile(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (builder) => ItemList()));
+                },
+                title: Text("Item List"),
+              ),
+              ListTile(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (builder) => CategoryList()));
+                },
+                title: Text("Categories"),
+              ),
+              ListTile(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (builder) => ModifierList()));
+                },
+                title: Text("Modifiers"),
+              ),
+              ListTile(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (builder) => DiscountList()));
+                },
+                title: Text("Discounts"),
               ),
             ],
           ),
