@@ -4,14 +4,14 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:loyverse/widgets/my_drawer.dart';
 
-class SalesByCategory extends StatefulWidget {
-  const SalesByCategory({super.key});
+class SalesByEmployee extends StatefulWidget {
+  const SalesByEmployee({super.key});
 
   @override
-  State<SalesByCategory> createState() => _SalesByCategoryState();
+  State<SalesByEmployee> createState() => _SalesByEmployeeState();
 }
 
-class _SalesByCategoryState extends State<SalesByCategory> {
+class _SalesByEmployeeState extends State<SalesByEmployee> {
   List<String> barlist = <String>['Area', 'Bar'];
   List<String> hrsList = <String>[
     'Hours',
@@ -56,7 +56,7 @@ class _SalesByCategoryState extends State<SalesByCategory> {
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
         title: Text(
-          "Sales By Category",
+          "Sales By Employee",
           style: TextStyle(
               color: Color(0xff214325),
               fontSize: 20,
@@ -150,33 +150,6 @@ class _SalesByCategoryState extends State<SalesByCategory> {
                         fontSize: 17,
                         fontWeight: FontWeight.w900),
                   ),
-                  Spacer(),
-                  DropdownButton<String>(
-                    value: items,
-                    icon: const Icon(Icons.filter),
-                    elevation: 0,
-                    style: const TextStyle(color: Colors.black),
-                    underline: Container(
-                      height: 1,
-                      color: Colors.black,
-                    ),
-                    onChanged: (String? value) {
-                      // This is called when the user selects an item.
-                      setState(() {
-                        items = value!;
-                      });
-                    },
-                    items: displayList
-                        .map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
                 ],
               ),
             ),
@@ -190,7 +163,7 @@ class _SalesByCategoryState extends State<SalesByCategory> {
                     Column(
                       children: [
                         Text(
-                          "Category",
+                          "Name",
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 14,
@@ -204,7 +177,35 @@ class _SalesByCategoryState extends State<SalesByCategory> {
                     Column(
                       children: [
                         Text(
-                          "Items Sold",
+                          "Gross Sales",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      width: 14,
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          "Refunds",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      width: 14,
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          "Discounts",
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 14,
@@ -232,7 +233,7 @@ class _SalesByCategoryState extends State<SalesByCategory> {
                     Column(
                       children: [
                         Text(
-                          "Cost of goods",
+                          "Receipts",
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 14,
@@ -246,7 +247,21 @@ class _SalesByCategoryState extends State<SalesByCategory> {
                     Column(
                       children: [
                         Text(
-                          "Gross Profits",
+                          "Average Sales",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      width: 14,
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          "Customer Signed Up",
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 14,
@@ -259,7 +274,7 @@ class _SalesByCategoryState extends State<SalesByCategory> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(left: 10, right: 10, top: 40),
+              margin: EdgeInsets.only(left: 10, right: 10, top: 50),
               child: AspectRatio(
                 aspectRatio: 2,
                 child: BarChart(
