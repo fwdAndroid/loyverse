@@ -6,6 +6,7 @@ import 'package:loyverse/dashbaord/inventory_supplies/inventory_history.dart';
 import 'package:loyverse/dashbaord/inventory_supplies/supply_main_screen.dart';
 import 'package:loyverse/dashbaord/productions/production_main_screen.dart';
 import 'package:loyverse/dashbaord/purchase_order/purchase_order.dart';
+import 'package:loyverse/dashbaord/sales/sales_summary.dart';
 import 'package:loyverse/dashbaord/transfer_orders/transfer_order_main_screen.dart';
 
 import '../dashbaord/inventorycounts/inventory_count_main_screen.dart';
@@ -35,6 +36,12 @@ class _MyDrawerState extends State<MyDrawer> {
             title: Text("Reports"),
             children: [
               ListTile(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (builder) => SalesSummaryDetial()));
+                },
                 title: Text("Sales Summary"),
               ),
               ListTile(
