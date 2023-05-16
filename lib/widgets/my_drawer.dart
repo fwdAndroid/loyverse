@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:loyverse/dashbaord/customer/cusotmer_main_screen.dart';
+import 'package:loyverse/dashbaord/employee/employee_list.dart';
 import 'package:loyverse/dashbaord/inventory_supplies/inventory_history.dart';
 import 'package:loyverse/dashbaord/inventory_supplies/supply_main_screen.dart';
 import 'package:loyverse/dashbaord/itemslist/categorylist.dart';
@@ -249,6 +250,10 @@ class _MyDrawerState extends State<MyDrawer> {
             title: Text("Employees"),
             children: [
               ListTile(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (builder) => EmployeeList()));
+                },
                 title: Text("Employee list"),
               ),
               ListTile(
