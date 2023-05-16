@@ -22,6 +22,7 @@ import 'package:loyverse/dashbaord/sales/sales_by_taxes.dart';
 import 'package:loyverse/dashbaord/sales/sales_summary.dart';
 import 'package:loyverse/dashbaord/sales/shifts.dart';
 import 'package:loyverse/dashbaord/transfer_orders/transfer_order_main_screen.dart';
+import 'package:loyverse/shift/shift.dart';
 
 import '../dashbaord/inventorycounts/inventory_count_main_screen.dart';
 import '../dashbaord/stockadjustment/stockadjustment_main_screen.dart';
@@ -272,6 +273,14 @@ class _MyDrawerState extends State<MyDrawer> {
             title: Text("Customers"),
           ),
           Divider(),
+          ListTile(
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (builder) => Shift()));
+            },
+            leading: Icon(Icons.person_4),
+            title: Text("Shift"),
+          ),
           ListTile(
             leading: Icon(Icons.settings),
             title: Text("Settings"),
