@@ -5,6 +5,7 @@ import 'package:loyverse/dashbaord/customer/add_customer.dart';
 import 'package:loyverse/dashbaord/customer/customer_view.dart';
 import 'package:loyverse/dashbaord/purchase_order/add_purchase_order.dart';
 import 'package:loyverse/dashbaord/purchase_order/view_purchase_order.dart';
+import 'package:loyverse/widgets/my_drawer.dart';
 
 class PurchaseOrderMainScreen extends StatefulWidget {
   const PurchaseOrderMainScreen({super.key});
@@ -31,10 +32,7 @@ class _PurchaseOrderMainScreenState extends State<PurchaseOrderMainScreen> {
       ),
       backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset("assets/back.png"),
-        ),
+        iconTheme: IconThemeData(color: Colors.black),
         title: Text(
           "Purchase Order",
           style: TextStyle(
@@ -45,6 +43,7 @@ class _PurchaseOrderMainScreenState extends State<PurchaseOrderMainScreen> {
         elevation: 0,
         backgroundColor: Colors.white,
       ),
+      drawer: MyDrawer(),
       body: ListView.builder(
         itemCount: 126,
         itemBuilder: (context, i) {

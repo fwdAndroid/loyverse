@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:loyverse/widgets/my_drawer.dart';
 
 class ViewInventoryHistory extends StatefulWidget {
   const ViewInventoryHistory({super.key});
@@ -13,11 +14,9 @@ class _ViewInventoryHistoryState extends State<ViewInventoryHistory> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MyDrawer(),
       appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset("assets/back.png"),
-        ),
+        iconTheme: IconThemeData(color: Colors.black),
         title: Text(
           "View Inventory History",
           style: TextStyle(

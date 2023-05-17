@@ -9,6 +9,7 @@ import 'package:loyverse/dashbaord/stockadjustment/add_stock.dart';
 import 'package:loyverse/dashbaord/stockadjustment/view_stock.dart';
 import 'package:loyverse/dashbaord/transfer_orders/add_transfer_order.dart';
 import 'package:loyverse/dashbaord/transfer_orders/view_transfer_order.dart';
+import 'package:loyverse/widgets/my_drawer.dart';
 
 class StockAdjustmentMainScreen extends StatefulWidget {
   const StockAdjustmentMainScreen({super.key});
@@ -33,12 +34,10 @@ class _StockAdjustmentMainScreenState extends State<StockAdjustmentMainScreen> {
           color: Colors.white,
         ),
       ),
+      drawer: MyDrawer(),
       backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset("assets/back.png"),
-        ),
+        iconTheme: IconThemeData(color: Colors.black),
         title: Text(
           "Stock Adjustment List",
           style: TextStyle(

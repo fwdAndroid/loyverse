@@ -5,6 +5,7 @@ import 'package:loyverse/dashbaord/customer/cusotmer_main_screen.dart';
 import 'package:loyverse/dashbaord/productions/production_main_screen.dart';
 import 'package:loyverse/dashbaord/purchase_order/purchase_order.dart';
 import 'package:loyverse/dashbaord/transfer_orders/transfer_order_main_screen.dart';
+import 'package:loyverse/widgets/my_drawer.dart';
 
 class AddProductions extends StatefulWidget {
   const AddProductions({super.key});
@@ -17,13 +18,11 @@ class _AddProductionsState extends State<AddProductions> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MyDrawer(),
       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset("assets/back.png"),
-        ),
+        iconTheme: IconThemeData(color: Colors.black),
         title: Text(
           "Create Productions",
           style: TextStyle(

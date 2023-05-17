@@ -7,6 +7,7 @@ import 'package:loyverse/dashbaord/purchase_order/add_purchase_order.dart';
 import 'package:loyverse/dashbaord/purchase_order/view_purchase_order.dart';
 import 'package:loyverse/dashbaord/transfer_orders/add_transfer_order.dart';
 import 'package:loyverse/dashbaord/transfer_orders/view_transfer_order.dart';
+import 'package:loyverse/widgets/my_drawer.dart';
 
 class TransferOrderMainScreen extends StatefulWidget {
   const TransferOrderMainScreen({super.key});
@@ -33,10 +34,7 @@ class _TransferOrderMainScreenState extends State<TransferOrderMainScreen> {
       ),
       backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset("assets/back.png"),
-        ),
+        iconTheme: IconThemeData(color: Colors.black),
         title: Text(
           "Transfer Order",
           style: TextStyle(
@@ -47,6 +45,7 @@ class _TransferOrderMainScreenState extends State<TransferOrderMainScreen> {
         elevation: 0,
         backgroundColor: Colors.white,
       ),
+      drawer: MyDrawer(),
       body: ListView.builder(
         itemCount: 126,
         itemBuilder: (context, i) {

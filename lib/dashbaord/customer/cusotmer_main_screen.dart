@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:loyverse/dashbaord/customer/add_customer.dart';
 import 'package:loyverse/dashbaord/customer/customer_view.dart';
+import 'package:loyverse/widgets/my_drawer.dart';
 
 class CustomerMainScreen extends StatefulWidget {
   const CustomerMainScreen({super.key});
@@ -28,10 +29,7 @@ class _CustomerMainScreenState extends State<CustomerMainScreen> {
       ),
       backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset("assets/back.png"),
-        ),
+        iconTheme: IconThemeData(color: Colors.black),
         title: Text(
           "Customer Managmenet",
           style: TextStyle(
@@ -42,6 +40,7 @@ class _CustomerMainScreenState extends State<CustomerMainScreen> {
         elevation: 0,
         backgroundColor: Colors.white,
       ),
+      drawer: MyDrawer(),
       body: ListView.builder(
         itemCount: 126,
         itemBuilder: (context, i) {

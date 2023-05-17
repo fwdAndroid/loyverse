@@ -9,6 +9,7 @@ import 'package:loyverse/dashbaord/purchase_order/add_purchase_order.dart';
 import 'package:loyverse/dashbaord/purchase_order/view_purchase_order.dart';
 import 'package:loyverse/dashbaord/transfer_orders/add_transfer_order.dart';
 import 'package:loyverse/dashbaord/transfer_orders/view_transfer_order.dart';
+import 'package:loyverse/widgets/my_drawer.dart';
 
 class ProductionMainScreen extends StatefulWidget {
   const ProductionMainScreen({super.key});
@@ -21,6 +22,7 @@ class _ProductionMainScreenState extends State<ProductionMainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MyDrawer(),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color(0xff394867),
         onPressed: () {
@@ -34,10 +36,7 @@ class _ProductionMainScreenState extends State<ProductionMainScreen> {
       ),
       backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset("assets/back.png"),
-        ),
+        iconTheme: IconThemeData(color: Colors.black),
         title: Text(
           "Productions",
           style: TextStyle(

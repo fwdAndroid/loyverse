@@ -1,7 +1,6 @@
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:custom_date_range_picker/custom_date_range_picker.dart';
+import 'package:loyverse/widgets/bar_chart.dart';
 import 'package:loyverse/widgets/my_drawer.dart';
 
 class SalesSummaryDetial extends StatefulWidget {
@@ -12,6 +11,8 @@ class SalesSummaryDetial extends StatefulWidget {
 }
 
 class _SalesSummaryDetialState extends State<SalesSummaryDetial> {
+  DateTime? startDate;
+  DateTime? endDate;
   List<String> barlist = <String>['Area', 'Bar'];
   List<String> hrsList = <String>[
     'Hours',
@@ -20,6 +21,13 @@ class _SalesSummaryDetialState extends State<SalesSummaryDetial> {
     "Months",
     "Quaters",
     "Years"
+  ];
+  List<String> allday = <String>[
+    'All Day',
+    'Custom Period',
+  ];
+  List<String> emp = <String>[
+    'All Employees',
   ];
   List<String> exportList = <String>[
     'Gross Sales',
@@ -34,6 +42,12 @@ class _SalesSummaryDetialState extends State<SalesSummaryDetial> {
   String dropdownValue = "Area";
   String dropdown = "Hours";
   String drop = "Gross Sales";
+  String all = "All Day";
+  String e = "All Employees";
+  final List<double> data = [
+    5,
+    4,
+  ]; // Replace with your data
 
   @override
   Widget build(BuildContext context) {
@@ -57,21 +71,48 @@ class _SalesSummaryDetialState extends State<SalesSummaryDetial> {
             SizedBox(
               height: 20,
             ),
-            Center(
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Color(0xffD9D9D9),
-                    borderRadius: BorderRadius.circular(14)),
-                width: 300,
-                height: 50,
-                child: Center(
-                  child: Text(
-                    "9 April 2023 - 9 May 2032",
-                    style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600),
-                    textAlign: TextAlign.center,
+            InkWell(
+              onTap: () {
+                showCustomDateRangePicker(
+                  context,
+                  dismissible: true,
+                  minimumDate:
+                      DateTime.now().subtract(const Duration(days: 30)),
+                  maximumDate: DateTime.now().add(const Duration(days: 30)),
+                  endDate: endDate,
+                  startDate: startDate,
+                  backgroundColor: Colors.white,
+                  primaryColor: Colors.green,
+                  onApplyClick: (start, end) {
+                    setState(() {
+                      endDate = end;
+                      startDate = start;
+                    });
+                  },
+                  onCancelClick: () {
+                    setState(() {
+                      endDate = null;
+                      startDate = null;
+                    });
+                  },
+                );
+              },
+              child: Center(
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Color(0xffD9D9D9),
+                      borderRadius: BorderRadius.circular(12)),
+                  width: 300,
+                  height: 50,
+                  child: Center(
+                    child: Text(
+                      "9 April 2023 - 9 May 2032",
+                      style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w600),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
               ),
@@ -87,13 +128,38 @@ class _SalesSummaryDetialState extends State<SalesSummaryDetial> {
                 width: 300,
                 height: 50,
                 child: Center(
-                  child: Text(
-                    "All Days",
-                    style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600),
-                    textAlign: TextAlign.center,
+                  child: DropdownButton<String>(
+                    value: all,
+                    icon: const Icon(
+                      Icons.arrow_drop_down,
+                    ),
+                    elevation: 0,
+                    style: const TextStyle(color: Colors.black),
+                    underline: Container(
+                      height: 0,
+                      color: Colors.black,
+                    ),
+                    onChanged: (String? value) {
+                      // This is called when the user selects an item.
+                      setState(() {
+                        all = value!;
+                      });
+                    },
+                    items: allday.map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Center(
+                          child: Text(
+                            value,
+                            style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      );
+                    }).toList(),
                   ),
                 ),
               ),
@@ -109,13 +175,38 @@ class _SalesSummaryDetialState extends State<SalesSummaryDetial> {
                 width: 300,
                 height: 50,
                 child: Center(
-                  child: Text(
-                    "All Employees",
-                    style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600),
-                    textAlign: TextAlign.center,
+                  child: DropdownButton<String>(
+                    value: e,
+                    icon: const Icon(
+                      Icons.arrow_drop_down,
+                    ),
+                    elevation: 0,
+                    style: const TextStyle(color: Colors.black),
+                    underline: Container(
+                      height: 0,
+                      color: Colors.black,
+                    ),
+                    onChanged: (String? value) {
+                      // This is called when the user selects an item.
+                      setState(() {
+                        e = value!;
+                      });
+                    },
+                    items: emp.map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Center(
+                          child: Text(
+                            value,
+                            style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      );
+                    }).toList(),
                   ),
                 ),
               ),
@@ -369,34 +460,12 @@ class _SalesSummaryDetialState extends State<SalesSummaryDetial> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(left: 10, right: 10, top: 10),
-              child: AspectRatio(
-                aspectRatio: 2,
-                child: BarChart(
-                  BarChartData(
-                    barGroups: ([
-                      BarChartGroupData(
-                        x: 12,
-                      ),
-                      BarChartGroupData(x: 34)
-                    ]),
-                    borderData: FlBorderData(
-                        border: const Border(
-                            bottom: BorderSide(), left: BorderSide())),
-                    gridData: FlGridData(show: false),
-                    titlesData: FlTitlesData(
-                      bottomTitles: AxisTitles(sideTitles: _bottomTitles),
-                      leftTitles:
-                          AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                      topTitles:
-                          AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                      rightTitles:
-                          AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                    ),
-                  ),
-                ),
-              ),
+              margin: EdgeInsets.only(top: 20),
+              width: 300,
+              height: 250,
+              child: MyBarChart(data: data),
             ),
+
             Container(
               margin: EdgeInsets.only(left: 10, right: 10, top: 10),
               child: Row(
@@ -572,35 +641,42 @@ class _SalesSummaryDetialState extends State<SalesSummaryDetial> {
                 ),
               ),
             ),
+
             Container(
-              margin: EdgeInsets.only(left: 10, right: 10, top: 10),
-              child: AspectRatio(
-                aspectRatio: 2,
-                child: BarChart(
-                  BarChartData(
-                    barGroups: ([
-                      BarChartGroupData(
-                        x: 12,
-                      ),
-                      BarChartGroupData(x: 34)
-                    ]),
-                    borderData: FlBorderData(
-                        border: const Border(
-                            bottom: BorderSide(), left: BorderSide())),
-                    gridData: FlGridData(show: false),
-                    titlesData: FlTitlesData(
-                      bottomTitles: AxisTitles(sideTitles: _bottomTitles),
-                      leftTitles:
-                          AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                      topTitles:
-                          AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                      rightTitles:
-                          AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                    ),
-                  ),
-                ),
-              ),
+              margin: EdgeInsets.only(top: 20),
+              width: 300,
+              height: 250,
+              child: MyBarChart(data: data),
             ),
+            // Container(
+            //   margin: EdgeInsets.only(left: 10, right: 10, top: 10),
+            //   child: AspectRatio(
+            //     aspectRatio: 2,
+            //     child: BarChart(
+            //       BarChartData(
+            //         barGroups: ([
+            //           BarChartGroupData(
+            //             x: 12,
+            //           ),
+            //           BarChartGroupData(x: 34)
+            //         ]),
+            //         borderData: FlBorderData(
+            //             border: const Border(
+            //                 bottom: BorderSide(), left: BorderSide())),
+            //         gridData: FlGridData(show: false),
+            //         titlesData: FlTitlesData(
+            //           bottomTitles: AxisTitles(sideTitles: _bottomTitles),
+            //           leftTitles:
+            //               AxisTitles(sideTitles: SideTitles(showTitles: false)),
+            //           topTitles:
+            //               AxisTitles(sideTitles: SideTitles(showTitles: false)),
+            //           rightTitles:
+            //               AxisTitles(sideTitles: SideTitles(showTitles: false)),
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
@@ -608,33 +684,4 @@ class _SalesSummaryDetialState extends State<SalesSummaryDetial> {
   }
 
   // List<BarChartGroupData> _chartGroups() {}
-
-  SideTitles get _bottomTitles => SideTitles(
-        showTitles: true,
-        getTitlesWidget: (value, meta) {
-          String text = '';
-          switch (value.toInt()) {
-            case 0:
-              text = 'Jan';
-              break;
-            case 2:
-              text = 'Mar';
-              break;
-            case 4:
-              text = 'May';
-              break;
-            case 6:
-              text = 'Jul';
-              break;
-            case 8:
-              text = 'Sep';
-              break;
-            case 10:
-              text = 'Nov';
-              break;
-          }
-
-          return Text(text);
-        },
-      );
 }

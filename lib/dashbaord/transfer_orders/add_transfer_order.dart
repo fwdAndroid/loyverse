@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:loyverse/dashbaord/customer/cusotmer_main_screen.dart';
 import 'package:loyverse/dashbaord/purchase_order/purchase_order.dart';
 import 'package:loyverse/dashbaord/transfer_orders/transfer_order_main_screen.dart';
+import 'package:loyverse/widgets/my_drawer.dart';
 
 class AddTransferOrder extends StatefulWidget {
   const AddTransferOrder({super.key});
@@ -19,10 +20,7 @@ class _AddTransferOrderState extends State<AddTransferOrder> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset("assets/back.png"),
-        ),
+        iconTheme: IconThemeData(color: Colors.black),
         title: Text(
           "Add Transfer Order",
           style: TextStyle(
@@ -33,6 +31,7 @@ class _AddTransferOrderState extends State<AddTransferOrder> {
         elevation: 0,
         backgroundColor: Colors.white,
       ),
+      drawer: MyDrawer(),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
