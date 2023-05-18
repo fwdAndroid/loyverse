@@ -47,7 +47,7 @@ class _MyDrawerState extends State<MyDrawer> {
           ),
           Divider(),
           ExpansionTile(
-            leading: Icon(Icons.report),
+            leading: Icon(Icons.file_copy),
             title: Text("Reports"),
             children: [
               ListTile(
@@ -269,7 +269,7 @@ class _MyDrawerState extends State<MyDrawer> {
                   MaterialPageRoute(
                       builder: (builder) => CustomerMainScreen()));
             },
-            leading: Icon(Icons.person_4),
+            leading: Icon(Icons.person),
             title: Text("Customers"),
           ),
           Divider(),
@@ -278,7 +278,7 @@ class _MyDrawerState extends State<MyDrawer> {
               Navigator.push(
                   context, MaterialPageRoute(builder: (builder) => Shift()));
             },
-            leading: Icon(Icons.person_4),
+            leading: Icon(Icons.shopify),
             title: Text("Shift"),
           ),
           ListTile(

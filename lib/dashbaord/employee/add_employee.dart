@@ -23,7 +23,7 @@ class _AddEmployeeState extends State<AddEmployee> {
     "Manager",
     "Cashier",
   ];
-  String drop = "Administrator 1";
+  String drop = "Administrator";
   bool _lights = false;
 
   @override
@@ -47,6 +47,15 @@ class _AddEmployeeState extends State<AddEmployee> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Center(
+            child: Container(
+              margin: EdgeInsets.only(top: 15, bottom: 20),
+              child: CircleAvatar(
+                radius: 70,
+                backgroundImage: AssetImage("assets/scan.png"),
+              ),
+            ),
+          ),
           Container(
               margin: EdgeInsets.only(top: 15, left: 20),
               child: Text(
@@ -110,34 +119,40 @@ class _AddEmployeeState extends State<AddEmployee> {
                     fillColor: Color(0xffF5F6FA),
                     filled: true),
               )),
-          // Text(
-          //   "Gross Sales",
-          //   style: TextStyle(
-          //       color: Colors.black, fontSize: 17, fontWeight: FontWeight.w900),
-          // ),
+          Container(
+              margin: EdgeInsets.only(top: 15, left: 20),
+              child: Text(
+                "Role",
+                style: TextStyle(fontSize: 17),
+              )),
           // Spacer(),
-          // DropdownButton<String>(
-          //   value: drop,
-          //   icon: const Icon(Icons.arrow_drop_down),
-          //   elevation: 0,
-          //   style: const TextStyle(color: Colors.black),
-          //   underline: Container(
-          //     height: 1,
-          //     color: Colors.black,
-          //   ),
-          //   onChanged: (String? value) {
-          //     // This is called when the user selects an item.
-          //     setState(() {
-          //       drop = value!;
-          //     });
-          //   },
-          //   items: displayList.map<DropdownMenuItem<String>>((String value) {
-          //     return DropdownMenuItem<String>(
-          //       value: value,
-          //       child: Text(value),
-          //     );
-          //   }).toList(),
-          // ),
+          Container(
+            margin: EdgeInsets.only(top: 15, left: 20, right: 20),
+            child: DropdownButton<String>(
+              isDense: true,
+              isExpanded: true,
+              value: drop,
+              icon: const Icon(Icons.arrow_drop_down),
+              elevation: 0,
+              style: const TextStyle(color: Colors.black),
+              underline: Container(
+                height: 1,
+                color: Colors.black,
+              ),
+              onChanged: (String? value) {
+                // This is called when the user selects an item.
+                setState(() {
+                  drop = value!;
+                });
+              },
+              items: displayList.map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+            ),
+          ),
           SizedBox(
             height: 10,
           ),

@@ -462,8 +462,8 @@ class _SalesSummaryDetialState extends State<SalesSummaryDetial> {
             Container(
               margin: EdgeInsets.only(top: 20),
               width: 300,
-              height: 250,
-              child: MyBarChart(data: data),
+              height: 150,
+              child: Expanded(child: MyBarChart(data: data)),
             ),
 
             Container(
@@ -645,8 +645,8 @@ class _SalesSummaryDetialState extends State<SalesSummaryDetial> {
             Container(
               margin: EdgeInsets.only(top: 20),
               width: 300,
-              height: 250,
-              child: MyBarChart(data: data),
+              height: 150,
+              child: Expanded(child: MyBarChart(data: data)),
             ),
             // Container(
             //   margin: EdgeInsets.only(left: 10, right: 10, top: 10),

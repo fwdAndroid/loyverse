@@ -132,6 +132,26 @@ class _ItemListState extends State<ItemList> {
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600),
                           ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "Chair",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "Chair",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400),
+                          ),
                         ],
                       ),
                       SizedBox(
@@ -145,6 +165,26 @@ class _ItemListState extends State<ItemList> {
                                 color: Colors.black,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "Wood",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "Wood",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400),
                           ),
                         ],
                       ),
@@ -160,6 +200,26 @@ class _ItemListState extends State<ItemList> {
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600),
                           ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "122",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "122",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400),
+                          ),
                         ],
                       ),
                       SizedBox(
@@ -174,6 +234,26 @@ class _ItemListState extends State<ItemList> {
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600),
                           ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "10%",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "10%",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400),
+                          ),
                         ],
                       ),
                       SizedBox(
@@ -187,6 +267,26 @@ class _ItemListState extends State<ItemList> {
                                 color: Colors.black,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "12",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "12",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400),
                           ),
                         ],
                       ),

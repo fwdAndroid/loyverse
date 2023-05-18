@@ -80,7 +80,7 @@ class _AddDiscountsState extends State<AddDiscounts> {
                   Expanded(
                     child: ListTile(
                       title: const Text(
-                        'Each',
+                        'Percentage',
                         style: TextStyle(fontSize: 11),
                       ),
                       leading: Radio(
@@ -97,7 +97,7 @@ class _AddDiscountsState extends State<AddDiscounts> {
                   Expanded(
                     child: ListTile(
                       title: const Text(
-                        'Weight/Volume',
+                        'Amount',
                         style: TextStyle(fontSize: 11),
                       ),
                       leading: Radio(
