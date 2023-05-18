@@ -80,7 +80,7 @@ class _AddEmployeeState extends State<AddEmployee> {
           Container(
               margin: EdgeInsets.only(top: 15, left: 20),
               child: Text(
-                "Emil",
+                "Email",
                 style: TextStyle(fontSize: 17),
               )),
           Container(

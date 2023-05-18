@@ -9,6 +9,7 @@ import 'package:loyverse/dashbaord/itemslist/categorylist.dart';
 import 'package:loyverse/dashbaord/itemslist/discountlist.dart';
 import 'package:loyverse/dashbaord/itemslist/itemslist.dart';
 import 'package:loyverse/dashbaord/itemslist/modifierslist.dart';
+import 'package:loyverse/dashbaord/main_dashboard.dart';
 import 'package:loyverse/dashbaord/productions/production_main_screen.dart';
 import 'package:loyverse/dashbaord/purchase_order/purchase_order.dart';
 import 'package:loyverse/dashbaord/sales/sales_by_category.dart';
@@ -22,6 +23,7 @@ import 'package:loyverse/dashbaord/sales/sales_by_taxes.dart';
 import 'package:loyverse/dashbaord/sales/sales_summary.dart';
 import 'package:loyverse/dashbaord/sales/shifts.dart';
 import 'package:loyverse/dashbaord/transfer_orders/transfer_order_main_screen.dart';
+import 'package:loyverse/setting/setting_page.dart';
 import 'package:loyverse/shift/shift.dart';
 
 import '../dashbaord/inventorycounts/inventory_count_main_screen.dart';
@@ -46,6 +48,15 @@ class _MyDrawerState extends State<MyDrawer> {
             subtitle: Text("fwdkaleem@gmail.com"),
           ),
           Divider(),
+          ListTile(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (builder) => MainDasboard()));
+            },
+            leading: Icon(Icons.home),
+            title: Text("Home"),
+          ),
+
           ExpansionTile(
             leading: Icon(Icons.file_copy),
             title: Text("Reports"),
@@ -282,6 +293,10 @@ class _MyDrawerState extends State<MyDrawer> {
             title: Text("Shift"),
           ),
           ListTile(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (builder) => SettingPage()));
+            },
             leading: Icon(Icons.settings),
             title: Text("Settings"),
           ),
