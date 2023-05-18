@@ -241,9 +241,9 @@ class _MyDrawerState extends State<MyDrawer> {
               ListTile(
                 title: Text("Inventory Valuation"),
               ),
-              ListTile(
-                title: Text("Discounts"),
-              ),
+              // ListTile(
+              //   title: Text("Discounts"),
+              // ),
             ],
           ),
           ExpansionTile(

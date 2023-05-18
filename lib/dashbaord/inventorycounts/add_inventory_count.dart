@@ -7,6 +7,8 @@ import 'package:loyverse/dashbaord/purchase_order/purchase_order.dart';
 import 'package:loyverse/dashbaord/transfer_orders/transfer_order_main_screen.dart';
 import 'package:loyverse/widgets/my_drawer.dart';
 
+enum SingingCharacter { lafayette, jefferson }
+
 class AddInventoryCount extends StatefulWidget {
   const AddInventoryCount({super.key});
 
@@ -15,6 +17,8 @@ class AddInventoryCount extends StatefulWidget {
 }
 
 class _AddInventoryCountState extends State<AddInventoryCount> {
+  SingingCharacter? _character = SingingCharacter.lafayette;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,6 +66,32 @@ class _AddInventoryCountState extends State<AddInventoryCount> {
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
                   "Type",
+                  style: TextStyle(fontSize: 17),
+                )),
+            RadioListTile<SingingCharacter>(
+              title: const Text('Partial'),
+              value: SingingCharacter.lafayette,
+              groupValue: _character,
+              onChanged: (SingingCharacter? value) {
+                setState(() {
+                  _character = value;
+                });
+              },
+            ),
+            RadioListTile<SingingCharacter>(
+              title: const Text('Full'),
+              value: SingingCharacter.jefferson,
+              groupValue: _character,
+              onChanged: (SingingCharacter? value) {
+                setState(() {
+                  _character = value;
+                });
+              },
+            ),
+            Container(
+                margin: EdgeInsets.only(top: 15, left: 20),
+                child: Text(
+                  "Search",
                   style: TextStyle(fontSize: 17),
                 )),
             Container(
@@ -144,19 +174,37 @@ class _AddInventoryCountState extends State<AddInventoryCount> {
             SizedBox(
               height: 10,
             ),
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (builder) => InventoryCountMainScreen()));
-                },
-                child: Text("Save"),
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xff394867),
-                    fixedSize: Size(220, 56)),
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (builder) =>
+                                  InventoryCountMainScreen()));
+                    },
+                    child: Text("Save"),
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Center(
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (builder) =>
+                                  InventoryCountMainScreen()));
+                    },
+                    child: Text("Cancel"),
+                  ),
+                ),
+              ],
             ),
             SizedBox(
               height: 10,

@@ -124,7 +124,7 @@ class _AddSupplliersState extends State<AddSupplliers> {
             Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
-                  "Supplier Address",
+                  "Website",
                   style: TextStyle(fontSize: 17),
                 )),
             Container(
@@ -145,7 +145,7 @@ class _AddSupplliersState extends State<AddSupplliers> {
             Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
-                  "Country",
+                  "Address 1",
                   style: TextStyle(fontSize: 17),
                 )),
             Container(
@@ -166,7 +166,7 @@ class _AddSupplliersState extends State<AddSupplliers> {
             Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
-                  "Provnice/State",
+                  "Address 2",
                   style: TextStyle(fontSize: 17),
                 )),
             Container(
@@ -208,7 +208,7 @@ class _AddSupplliersState extends State<AddSupplliers> {
             Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
-                  "Phone Number",
+                  "Postal/zip code",
                   style: TextStyle(fontSize: 17),
                 )),
             Container(
@@ -229,7 +229,28 @@ class _AddSupplliersState extends State<AddSupplliers> {
             Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
-                  "Postal Code",
+                  "Country",
+                  style: TextStyle(fontSize: 17),
+                )),
+            Container(
+                margin: EdgeInsets.only(top: 5, left: 20, right: 20),
+                child: TextField(
+                  decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+
+                        borderSide: BorderSide(
+                            width: 1, color: Color(0xffF5F6FA)), //<-- SEE HERE
+                      ),
+                      border: InputBorder.none,
+                      hintText: "23",
+                      fillColor: Color(0xffF5F6FA),
+                      filled: true),
+                )),
+            Container(
+                margin: EdgeInsets.only(top: 15, left: 20),
+                child: Text(
+                  "Region/State/Province",
                   style: TextStyle(fontSize: 17),
                 )),
             Container(
@@ -271,19 +292,35 @@ class _AddSupplliersState extends State<AddSupplliers> {
             SizedBox(
               height: 10,
             ),
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (builder) => MainSupplyScreen()));
-                },
-                child: Text("Save"),
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xff394867),
-                    fixedSize: Size(220, 56)),
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (builder) => MainSupplyScreen()));
+                    },
+                    child: Text("Save"),
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Center(
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (builder) => MainSupplyScreen()));
+                    },
+                    child: Text("Cancel"),
+                  ),
+                ),
+              ],
             ),
             SizedBox(
               height: 10,

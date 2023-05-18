@@ -61,7 +61,28 @@ class _AddProductionsState extends State<AddProductions> {
             Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
-                  "ITem Name",
+                  "Search ",
+                  style: TextStyle(fontSize: 17),
+                )),
+            Container(
+                margin: EdgeInsets.only(top: 5, left: 20, right: 20),
+                child: TextField(
+                  decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+
+                        borderSide: BorderSide(
+                            width: 1, color: Color(0xffF5F6FA)), //<-- SEE HERE
+                      ),
+                      border: InputBorder.none,
+                      hintText: "Fawad",
+                      fillColor: Color(0xffF5F6FA),
+                      filled: true),
+                )),
+            Container(
+                margin: EdgeInsets.only(top: 15, left: 20),
+                child: Text(
+                  "Item Name",
                   style: TextStyle(fontSize: 17),
                 )),
             Container(
@@ -124,19 +145,35 @@ class _AddProductionsState extends State<AddProductions> {
             SizedBox(
               height: 10,
             ),
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (builder) => ProductionMainScreen()));
-                },
-                child: Text("Save"),
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xff394867),
-                    fixedSize: Size(220, 56)),
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (builder) => ProductionMainScreen()));
+                    },
+                    child: Text("Save"),
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Center(
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (builder) => ProductionMainScreen()));
+                    },
+                    child: Text("Cancel"),
+                  ),
+                ),
+              ],
             ),
             SizedBox(
               height: 10,

@@ -14,6 +14,10 @@ class AddTransferOrder extends StatefulWidget {
 }
 
 class _AddTransferOrderState extends State<AddTransferOrder> {
+  List<String> emp = <String>[
+    'Store 1',
+  ];
+  String e = 'Store 1';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,45 +43,44 @@ class _AddTransferOrderState extends State<AddTransferOrder> {
             Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
-                  "Search",
+                  "Source Store",
                   style: TextStyle(fontSize: 17),
                 )),
             Container(
-                margin: EdgeInsets.only(top: 5, left: 20, right: 20),
-                child: TextField(
-                  decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12.0),
-
-                        borderSide: BorderSide(
-                            width: 1, color: Color(0xffF5F6FA)), //<-- SEE HERE
-                      ),
-                      border: InputBorder.none,
-                      hintText: "Fawad Kaleem",
-                      fillColor: Color(0xffF5F6FA),
-                      filled: true),
-                )),
-            Container(
-                margin: EdgeInsets.only(top: 15, left: 20),
-                child: Text(
-                  "Store Name",
-                  style: TextStyle(fontSize: 17),
-                )),
-            Container(
-                margin: EdgeInsets.only(top: 5, left: 20, right: 20),
-                child: TextField(
-                  decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12.0),
-
-                        borderSide: BorderSide(
-                            width: 1, color: Color(0xffF5F6FA)), //<-- SEE HERE
-                      ),
-                      border: InputBorder.none,
-                      hintText: "Fawad",
-                      fillColor: Color(0xffF5F6FA),
-                      filled: true),
-                )),
+              margin: EdgeInsets.only(top: 5, left: 20, right: 20),
+              child: DropdownButton<String>(
+                value: e,
+                icon: const Icon(
+                  Icons.arrow_drop_down,
+                ),
+                elevation: 0,
+                style: const TextStyle(color: Colors.black),
+                underline: Container(
+                  height: 0,
+                  color: Colors.black,
+                ),
+                isExpanded: true,
+                onChanged: (String? value) {
+                  // This is called when the user selects an item.
+                  setState(() {
+                    e = value!;
+                  });
+                },
+                items: emp.map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(
+                      value,
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w600),
+                      textAlign: TextAlign.start,
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
             Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
@@ -85,20 +88,40 @@ class _AddTransferOrderState extends State<AddTransferOrder> {
                   style: TextStyle(fontSize: 17),
                 )),
             Container(
-                margin: EdgeInsets.only(top: 5, left: 20, right: 20),
-                child: TextField(
-                  decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12.0),
-
-                        borderSide: BorderSide(
-                            width: 1, color: Color(0xffF5F6FA)), //<-- SEE HERE
-                      ),
-                      border: InputBorder.none,
-                      hintText: "Eden Garden",
-                      fillColor: Color(0xffF5F6FA),
-                      filled: true),
-                )),
+              margin: EdgeInsets.only(top: 5, left: 20, right: 20),
+              child: DropdownButton<String>(
+                value: e,
+                icon: const Icon(
+                  Icons.arrow_drop_down,
+                ),
+                elevation: 0,
+                style: const TextStyle(color: Colors.black),
+                underline: Container(
+                  height: 0,
+                  color: Colors.black,
+                ),
+                isExpanded: true,
+                onChanged: (String? value) {
+                  // This is called when the user selects an item.
+                  setState(() {
+                    e = value!;
+                  });
+                },
+                items: emp.map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(
+                      value,
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w600),
+                      textAlign: TextAlign.start,
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
             Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
@@ -109,6 +132,7 @@ class _AddTransferOrderState extends State<AddTransferOrder> {
                 margin: EdgeInsets.only(top: 5, left: 20, right: 20),
                 child: TextField(
                   decoration: InputDecoration(
+                      suffixIcon: Icon(Icons.calendar_month),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12.0),
 
@@ -123,7 +147,7 @@ class _AddTransferOrderState extends State<AddTransferOrder> {
             Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
-                  "Product Name",
+                  "Notes",
                   style: TextStyle(fontSize: 17),
                 )),
             Container(
@@ -142,9 +166,19 @@ class _AddTransferOrderState extends State<AddTransferOrder> {
                       filled: true),
                 )),
             Container(
+              margin: EdgeInsets.only(top: 5, left: 20, right: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Items"),
+                  TextButton(onPressed: () {}, child: Text("Imort")),
+                ],
+              ),
+            ),
+            Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
-                  "Total Stock",
+                  "Item Stock",
                   style: TextStyle(fontSize: 17),
                 )),
             Container(
@@ -165,7 +199,7 @@ class _AddTransferOrderState extends State<AddTransferOrder> {
             Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
-                  "Destination Stock",
+                  "Source Stock",
                   style: TextStyle(fontSize: 17),
                 )),
             Container(
@@ -186,7 +220,28 @@ class _AddTransferOrderState extends State<AddTransferOrder> {
             Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
-                  "Quantity",
+                  "Destination",
+                  style: TextStyle(fontSize: 17),
+                )),
+            Container(
+                margin: EdgeInsets.only(top: 5, left: 20, right: 20),
+                child: TextField(
+                  decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+
+                        borderSide: BorderSide(
+                            width: 1, color: Color(0xffF5F6FA)), //<-- SEE HERE
+                      ),
+                      border: InputBorder.none,
+                      hintText: "23",
+                      fillColor: Color(0xffF5F6FA),
+                      filled: true),
+                )),
+            Container(
+                margin: EdgeInsets.only(top: 15, left: 20),
+                child: Text(
+                  "Search",
                   style: TextStyle(fontSize: 17),
                 )),
             Container(
@@ -207,19 +262,35 @@ class _AddTransferOrderState extends State<AddTransferOrder> {
             SizedBox(
               height: 10,
             ),
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (builder) => TransferOrderMainScreen()));
-                },
-                child: Text("Save"),
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xff394867),
-                    fixedSize: Size(220, 56)),
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (builder) => TransferOrderMainScreen()));
+                    },
+                    child: Text("Save"),
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Center(
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (builder) => TransferOrderMainScreen()));
+                    },
+                    child: Text("Cancel"),
+                  ),
+                ),
+              ],
             ),
             SizedBox(
               height: 10,

@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:loyverse/dashbaord/customer/cusotmer_main_screen.dart';
 import 'package:loyverse/dashbaord/purchase_order/purchase_order.dart';
+import 'package:loyverse/widgets/my_drawer.dart';
 
 class AddPurchaseOrder extends StatefulWidget {
   const AddPurchaseOrder({super.key});
@@ -15,13 +16,11 @@ class _AddPurchaseOrderState extends State<AddPurchaseOrder> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MyDrawer(),
       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset("assets/back.png"),
-        ),
+        iconTheme: IconThemeData(color: Colors.black),
         title: Text(
           "Add Purchase Order",
           style: TextStyle(
@@ -39,7 +38,7 @@ class _AddPurchaseOrderState extends State<AddPurchaseOrder> {
             Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
-                  "Search",
+                  "Supplier Name",
                   style: TextStyle(fontSize: 17),
                 )),
             Container(
@@ -67,6 +66,7 @@ class _AddPurchaseOrderState extends State<AddPurchaseOrder> {
                 margin: EdgeInsets.only(top: 5, left: 20, right: 20),
                 child: TextField(
                   decoration: InputDecoration(
+                      suffixIcon: Icon(Icons.calendar_month),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12.0),
 
@@ -88,6 +88,7 @@ class _AddPurchaseOrderState extends State<AddPurchaseOrder> {
                 margin: EdgeInsets.only(top: 5, left: 20, right: 20),
                 child: TextField(
                   decoration: InputDecoration(
+                      suffixIcon: Icon(Icons.calendar_month),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12.0),
 
@@ -102,7 +103,7 @@ class _AddPurchaseOrderState extends State<AddPurchaseOrder> {
             Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
-                  "Product Name",
+                  "Notes",
                   style: TextStyle(fontSize: 17),
                 )),
             Container(
@@ -121,9 +122,38 @@ class _AddPurchaseOrderState extends State<AddPurchaseOrder> {
                       filled: true),
                 )),
             Container(
+              margin: EdgeInsets.only(top: 5, left: 20, right: 20),
+              child: Row(
+                children: [
+                  Text("Items"),
+                  Spacer(),
+                  TextButton(onPressed: () {}, child: Text("Import")),
+                  TextButton(onPressed: () {}, child: Text("AutoFill")),
+                ],
+              ),
+            ),
+            Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
-                  "Product Quantity",
+                  "Stock",
+                  style: TextStyle(fontSize: 17),
+                )),
+            Container(
+                margin: EdgeInsets.only(top: 5, left: 20, right: 20),
+                child: Text("7")),
+            Container(
+                margin: EdgeInsets.only(top: 15, left: 20),
+                child: Text(
+                  "Incomming",
+                  style: TextStyle(fontSize: 17),
+                )),
+            Container(
+                margin: EdgeInsets.only(top: 5, left: 20, right: 20),
+                child: Text("7")),
+            Container(
+                margin: EdgeInsets.only(top: 15, left: 20),
+                child: Text(
+                  "Quantity",
                   style: TextStyle(fontSize: 17),
                 )),
             Container(
@@ -137,14 +167,14 @@ class _AddPurchaseOrderState extends State<AddPurchaseOrder> {
                             width: 1, color: Color(0xffF5F6FA)), //<-- SEE HERE
                       ),
                       border: InputBorder.none,
-                      hintText: "12",
+                      hintText: "23",
                       fillColor: Color(0xffF5F6FA),
                       filled: true),
                 )),
             Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
-                  "Product Price",
+                  "Purchase Cost",
                   style: TextStyle(fontSize: 17),
                 )),
             Container(
@@ -165,7 +195,7 @@ class _AddPurchaseOrderState extends State<AddPurchaseOrder> {
             Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
-                  "Additional Item Cost",
+                  "Amount",
                   style: TextStyle(fontSize: 17),
                 )),
             Container(
@@ -179,14 +209,40 @@ class _AddPurchaseOrderState extends State<AddPurchaseOrder> {
                             width: 1, color: Color(0xffF5F6FA)), //<-- SEE HERE
                       ),
                       border: InputBorder.none,
-                      hintText: "23\$",
+                      hintText: "Fawad Kaleem",
+                      fillColor: Color(0xffF5F6FA),
+                      filled: true),
+                )),
+            Container(
+              margin: EdgeInsets.only(top: 5, left: 20, right: 20),
+              child: TextButton(
+                  onPressed: () {}, child: Text("Add Additional Cost")),
+            ),
+            Container(
+                margin: EdgeInsets.only(top: 15, left: 20),
+                child: Text(
+                  "Additional Cost",
+                  style: TextStyle(fontSize: 17),
+                )),
+            Container(
+                margin: EdgeInsets.only(top: 5, left: 20, right: 20),
+                child: TextField(
+                  decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+
+                        borderSide: BorderSide(
+                            width: 1, color: Color(0xffF5F6FA)), //<-- SEE HERE
+                      ),
+                      border: InputBorder.none,
+                      hintText: "Fawad Kaleem",
                       fillColor: Color(0xffF5F6FA),
                       filled: true),
                 )),
             Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
-                  "Note (Optional)",
+                  "Amount",
                   style: TextStyle(fontSize: 17),
                 )),
             Container(
@@ -207,19 +263,35 @@ class _AddPurchaseOrderState extends State<AddPurchaseOrder> {
             SizedBox(
               height: 10,
             ),
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (builder) => PurchaseOrderMainScreen()));
-                },
-                child: Text("Save"),
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xff394867),
-                    fixedSize: Size(220, 56)),
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (builder) => PurchaseOrderMainScreen()));
+                    },
+                    child: Text("Save"),
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Center(
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (builder) => PurchaseOrderMainScreen()));
+                    },
+                    child: Text("Cancel"),
+                  ),
+                ),
+              ],
             ),
             SizedBox(
               height: 10,

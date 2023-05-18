@@ -11,6 +11,8 @@ class ViewInventoryHistory extends StatefulWidget {
 }
 
 class _ViewInventoryHistoryState extends State<ViewInventoryHistory> {
+  DateTime? startDate;
+  DateTime? endDate;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

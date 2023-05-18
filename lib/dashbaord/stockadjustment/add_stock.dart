@@ -15,6 +15,13 @@ class AddStockAdjustment extends StatefulWidget {
 }
 
 class _AddStockAdjustmentState extends State<AddStockAdjustment> {
+  List<String> emp = <String>[
+    'Receive Items',
+    'Inventory Count',
+    'Loss',
+    'Damage'
+  ];
+  String e = "Receive Items";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,24 +51,44 @@ class _AddStockAdjustmentState extends State<AddStockAdjustment> {
                   style: TextStyle(fontSize: 17),
                 )),
             Container(
-                margin: EdgeInsets.only(top: 5, left: 20, right: 20),
-                child: TextField(
-                  decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12.0),
-
-                        borderSide: BorderSide(
-                            width: 1, color: Color(0xffF5F6FA)), //<-- SEE HERE
-                      ),
-                      border: InputBorder.none,
-                      hintText: "Fawad Kaleem",
-                      fillColor: Color(0xffF5F6FA),
-                      filled: true),
-                )),
+              margin: EdgeInsets.only(top: 5, left: 20, right: 20),
+              child: DropdownButton<String>(
+                value: e,
+                icon: const Icon(
+                  Icons.arrow_drop_down,
+                ),
+                elevation: 0,
+                style: const TextStyle(color: Colors.black),
+                underline: Container(
+                  height: 0,
+                  color: Colors.black,
+                ),
+                isExpanded: true,
+                onChanged: (String? value) {
+                  // This is called when the user selects an item.
+                  setState(() {
+                    e = value!;
+                  });
+                },
+                items: emp.map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(
+                      value,
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w600),
+                      textAlign: TextAlign.start,
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
             Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
-                  "Search Items",
+                  "Notes",
                   style: TextStyle(fontSize: 17),
                 )),
             Container(
@@ -82,23 +109,8 @@ class _AddStockAdjustmentState extends State<AddStockAdjustment> {
             Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
-                  "Product Name",
+                  "Items",
                   style: TextStyle(fontSize: 17),
-                )),
-            Container(
-                margin: EdgeInsets.only(top: 5, left: 20, right: 20),
-                child: TextField(
-                  decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12.0),
-
-                        borderSide: BorderSide(
-                            width: 1, color: Color(0xffF5F6FA)), //<-- SEE HERE
-                      ),
-                      border: InputBorder.none,
-                      hintText: "Chair",
-                      fillColor: Color(0xffF5F6FA),
-                      filled: true),
                 )),
             Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
@@ -124,7 +136,7 @@ class _AddStockAdjustmentState extends State<AddStockAdjustment> {
             Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
-                  "Cost",
+                  "Add Stock",
                   style: TextStyle(fontSize: 17),
                 )),
             Container(
@@ -145,7 +157,7 @@ class _AddStockAdjustmentState extends State<AddStockAdjustment> {
             Container(
                 margin: EdgeInsets.only(top: 15, left: 20),
                 child: Text(
-                  "Add Stock",
+                  "Cost",
                   style: TextStyle(fontSize: 17),
                 )),
             Container(
@@ -184,22 +196,61 @@ class _AddStockAdjustmentState extends State<AddStockAdjustment> {
                       fillColor: Color(0xffF5F6FA),
                       filled: true),
                 )),
+            Container(
+                margin: EdgeInsets.only(top: 15, left: 20),
+                child: Text(
+                  "Search",
+                  style: TextStyle(fontSize: 17),
+                )),
+            Container(
+                margin: EdgeInsets.only(top: 5, left: 20, right: 20),
+                child: TextField(
+                  decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+
+                        borderSide: BorderSide(
+                            width: 1, color: Color(0xffF5F6FA)), //<-- SEE HERE
+                      ),
+                      border: InputBorder.none,
+                      hintText: "23",
+                      fillColor: Color(0xffF5F6FA),
+                      filled: true),
+                )),
             SizedBox(
               height: 10,
             ),
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (builder) => StockAdjustmentMainScreen()));
-                },
-                child: Text("Adjust"),
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xff394867),
-                    fixedSize: Size(220, 56)),
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (builder) =>
+                                  StockAdjustmentMainScreen()));
+                    },
+                    child: Text("Save"),
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Center(
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (builder) =>
+                                  StockAdjustmentMainScreen()));
+                    },
+                    child: Text("Cancel"),
+                  ),
+                ),
+              ],
             ),
             SizedBox(
               height: 10,
